@@ -140,9 +140,9 @@ function getTestRunsReport(testRuns: TestRunResult[], options: ReportOptions): s
       const name = tr.path
       const addr = options.baseUrl + makeRunSlug(runIndex).link
       const nameLink = link(name, addr)
-      const passed = tr.passed > 0 ? `${tr.passed}${Icon.success}` : ''
-      const failed = tr.failed > 0 ? `${tr.failed}${Icon.fail}` : ''
-      const skipped = tr.skipped > 0 ? `${tr.skipped}${Icon.skip}` : ''
+      const passed = tr.passed > 0 ? `${tr.passed} ${Icon.success}` : ''
+      const failed = tr.failed > 0 ? `${tr.failed} ${Icon.fail}` : ''
+      const skipped = tr.skipped > 0 ? `${tr.skipped} ${Icon.skip}` : ''
       return [nameLink, passed, failed, skipped, time]
     })
 
@@ -187,9 +187,9 @@ function getSuitesReport(tr: TestRunResult, runIndex: number, options: ReportOpt
         const skipLink = options.listTests === 'none' || (options.listTests === 'failed' && s.result !== 'failed')
         const tsAddr = options.baseUrl + makeSuiteSlug(runIndex, suiteIndex).link
         const tsNameLink = skipLink ? tsName : link(tsName, tsAddr)
-        const passed = s.passed > 0 ? `${s.passed}${Icon.success}` : ''
-        const failed = s.failed > 0 ? `${s.failed}${Icon.fail}` : ''
-        const skipped = s.skipped > 0 ? `${s.skipped}${Icon.skip}` : ''
+        const passed = s.passed > 0 ? `${s.passed} ${Icon.success}` : ''
+        const failed = s.failed > 0 ? `${s.failed} ${Icon.fail}` : ''
+        const skipped = s.skipped > 0 ? `${s.skipped} `${Icon.skip}` : ''
         return [tsNameLink, passed, failed, skipped, tsTime]
       })
     )
